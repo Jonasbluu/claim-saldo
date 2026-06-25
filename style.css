@@ -1,8 +1,16 @@
+/* ========================= */
+/* RESET */
+/* ========================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
+
+/* ========================= */
+/* BODY */
+/* ========================= */
 
 body{
     min-height:100vh;
@@ -11,9 +19,11 @@ body{
     align-items:center;
 
     background:
-    radial-gradient(circle at center,
-    #2b1a00,
-    #120d00);
+    radial-gradient(
+        circle at center,
+        #2b1a00,
+        #120d00
+    );
 
     font-family:Arial,sans-serif;
     overflow:hidden;
@@ -23,21 +33,22 @@ body{
     text-align:center;
 }
 
-.envelope{
-    position:relative;
-    width:320px;
-    height:220px;
-    margin:auto;
-    cursor:pointer;
-
-    overflow:hidden;
-}
+/* ========================= */
+/* JUDUL */
+/* ========================= */
 
 .title{
     color:#ffd700;
     margin-bottom:30px;
-    text-shadow:0 0 15px gold;
+
+    text-shadow:
+        0 0 10px gold,
+        0 0 20px gold;
 }
+
+/* ========================= */
+/* AMPLOP */
+/* ========================= */
 
 .envelope{
     position:relative;
@@ -49,16 +60,9 @@ body{
     cursor:pointer;
 }
 
-/* badan amplop */
-.envelope{
-    position:relative;
-    width:320px;
-    height:220px;
-    margin:auto;
-    cursor:pointer;
-
-    overflow:visible;
-}
+/* ========================= */
+/* BADAN AMPLOP */
+/* ========================= */
 
 .envelope::before{
     content:"";
@@ -68,21 +72,28 @@ body{
 
     background:
     linear-gradient(
-    145deg,
-    #ffd700,
-    #d4a300);
+        145deg,
+        #ffd700,
+        #d4a300
+    );
 
     border-radius:12px;
 
+    z-index:1;
+
     box-shadow:
-    0 0 30px rgba(255,215,0,.6);
+        0 0 25px rgba(255,215,0,.6);
 }
 
-/* tutup amplop */
+/* ========================= */
+/* TUTUP AMPLOP */
+/* ========================= */
+
 .envelope::after{
     content:"";
 
     position:absolute;
+
     top:0;
     left:0;
 
@@ -91,9 +102,9 @@ body{
 
     background:
     linear-gradient(
-        180deg,
+        145deg,
         #ffe97a,
-        #f5d648
+        #d4a300
     );
 
     clip-path:polygon(
@@ -104,48 +115,47 @@ body{
 
     transform-origin:top center;
     transition:.8s;
+
     z-index:3;
 }
 
-.envelope.open::after{
-    transform:
-    rotateX(180deg);
-}
+/* ========================= */
+/* SURAT */
+/* ========================= */
 
 .letter{
     position:absolute;
 
     left:50%;
-    top:20px;
+    top:40px;
 
     width:280px;
 
-    background:white;
-
-    transform:
-    translateX(-50%)
-    translateY(180px);
+    background:#fff;
 
     padding:25px;
 
-    border-radius:10px;
+    border-radius:12px;
 
-    transition:1s;
+    text-align:center;
 
-    z-index:1;
+    transform:
+        translateX(-50%)
+        translateY(140px);
 
     opacity:0;
 
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.3);
-}
-.envelope.open .letter{
-    transform:
-        translateX(-50%)
-        translateY(-170px);
+    transition:all .8s ease;
 
-    z-index:10;
+    z-index:2;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
 }
+
+/* ========================= */
+/* ISI SURAT */
+/* ========================= */
 
 .letter h2{
     color:#d4a300;
@@ -168,25 +178,46 @@ body{
 
     border-radius:50px;
 
-    background:
-    linear-gradient(
-    90deg,
-    gold,
-    orange);
-
-    color:#000;
+    cursor:pointer;
 
     font-weight:bold;
 
-    cursor:pointer;
+    background:
+    linear-gradient(
+        90deg,
+        gold,
+        orange
+    );
 
     box-shadow:
-    0 0 20px gold;
+        0 0 20px gold;
 }
 
 .claim-btn:hover{
     transform:scale(1.05);
 }
+
+/* ========================= */
+/* SAAT DIBUKA */
+/* ========================= */
+
+.envelope.open::after{
+    transform:rotateX(180deg);
+}
+
+.envelope.open .letter{
+    transform:
+        translateX(-50%)
+        translateY(-100px);
+
+    opacity:1;
+
+    z-index:10;
+}
+
+/* ========================= */
+/* TEKS BAWAH */
+/* ========================= */
 
 .click-text{
     color:#fff;
