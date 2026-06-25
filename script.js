@@ -1,0 +1,171 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle at center,
+    #2b1a00,
+    #120d00);
+
+    font-family:Arial,sans-serif;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+}
+
+.title{
+    color:#ffd700;
+    margin-bottom:30px;
+    text-shadow:0 0 15px gold;
+}
+
+.envelope{
+    position:relative;
+
+    width:320px;
+    height:220px;
+
+    margin:auto;
+    cursor:pointer;
+}
+
+/* badan amplop */
+.envelope::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+    145deg,
+    #ffd700,
+    #d4a300);
+
+    border-radius:12px;
+
+    box-shadow:
+    0 0 30px rgba(255,215,0,.6);
+}
+
+/* tutup amplop */
+.envelope::after{
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:
+    linear-gradient(
+    145deg,
+    #ffea7a,
+    #d4a300);
+
+    clip-path:
+    polygon(
+    0 0,
+    50% 55%,
+    100% 0);
+
+    transform-origin:top;
+    transition:.8s;
+}
+
+.envelope.open::after{
+    transform:
+    rotateX(180deg);
+}
+
+.letter{
+    position:absolute;
+
+    left:50%;
+    top:20px;
+
+    width:280px;
+
+    background:white;
+
+    transform:
+    translateX(-50%)
+    translateY(120px);
+
+    padding:25px;
+
+    border-radius:10px;
+
+    transition:1s;
+
+    z-index:-1;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.3);
+}
+
+.envelope.open .letter{
+    transform:
+    translateX(-50%)
+    translateY(-130px);
+
+    z-index:5;
+}
+
+.letter h2{
+    color:#d4a300;
+    margin-bottom:15px;
+}
+
+.reward{
+    margin:20px 0;
+
+    font-size:28px;
+    font-weight:bold;
+
+    color:#ff9800;
+}
+
+.claim-btn{
+    border:none;
+
+    padding:14px 28px;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+    90deg,
+    gold,
+    orange);
+
+    color:#000;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 0 20px gold;
+}
+
+.claim-btn:hover{
+    transform:scale(1.05);
+}
+
+.click-text{
+    color:#fff;
+    margin-top:40px;
+}
