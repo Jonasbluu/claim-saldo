@@ -113,110 +113,67 @@ body{
 }
 
 /* ========================= */
-/* SURAT */
-/* ========================= */
-
-.letter{
-    position:absolute;
-
-    left:50%;
-    top:20px;
-
-    width:280px;
-
-    padding:25px;
-
-    background:#fff;
-
-    border-radius:12px;
-
-    text-align:center;
-
-    transform:
-    translateX(-50%)
-    translateY(130px);
-
-    opacity:0;
-
-    transition:.8s ease;
-
-    z-index:2;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.25);
-}
-
-/* ========================= */
-/* ISI SURAT */
-/* ========================= */
-
-.letter h2{
-    color:#d4a300;
-    margin-bottom:15px;
-}
-
-.reward{
-    margin:20px 0;
-
-    font-size:28px;
-    font-weight:bold;
-
-    color:#ff9800;
-}
-
-/* ========================= */
-/* TOMBOL CLAIM */
-/* ========================= */
-
-.claim-btn{
-    border:none;
-
-    padding:14px 28px;
-
-    border-radius:50px;
-
-    cursor:pointer;
-
-    font-weight:bold;
-
-    background:
-    linear-gradient(
-        90deg,
-        gold,
-        orange
-    );
-
-    box-shadow:
-    0 0 20px gold;
-}
-
-.claim-btn:hover{
-    transform:scale(1.05);
-}
-
-/* ========================= */
-/* SAAT AMPLOP DIBUKA */
-/* ========================= */
-
-.envelope.open .flap{
-    transform:rotateX(180deg);
-}
-
-.envelope.open .letter{
-    transform:
-    translateX(-50%)
-    translateY(-80px);
-
-    opacity:1;
-
-    z-index:10;
-}
-
-/* ========================= */
 /* TEKS BAWAH */
 /* ========================= */
 
 .click-text{
     color:#fff;
     margin-top:40px;
+}
+/* ========================= */
+/* POPUP SURAT */
+/* ========================= */
+
+.popup-letter{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(0,0,0,.6);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:999;
+}
+
+.popup-letter.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.popup-card{
+
+    width:320px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    text-align:center;
+
+    animation:popupIn .4s ease;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.25);
+}
+
+@keyframes popupIn{
+
+    from{
+        transform:scale(.7);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
 }
